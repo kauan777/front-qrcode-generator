@@ -8,15 +8,11 @@ import QrCodeModal from "./Modals/QrCodeModal";
 import { isGithubUrl, isInstagramUrl, isLinkedinUrl } from "../utils/validURL";
 
 function Form() {
-  const [name, setName] = useState("Kauan Costa");
-  const [description, setDescription] = useState("I'm full-stack developer");
-  const [linkedin, setLinkedin] = useState(
-    "https://www.linkedin.com/in/kauancosta/"
-  );
-  const [github, setGithub] = useState("https://github.com/kauan777");
-  const [instagram, setInstagram] = useState(
-    "https://www.instagram.com/ikauan.costa/"
-  );
+  const [name, setName] = useState("");
+  const [description, setDescription] = useState("");
+  const [linkedin, setLinkedin] = useState("");
+  const [github, setGithub] = useState("");
+  const [instagram, setInstagram] = useState("");
   const [slug, setSlug] = useState("teste");
 
   const [slugToLink, setSlugToLink] = useState("");
@@ -119,9 +115,7 @@ function Form() {
           label="Linkedin"
           variant="outlined"
           error={linkedin === "" && isSent}
-          helperText={
-            linkedin === "" && isSent ? "Linkedin is required" : ""
-          }
+          helperText={linkedin === "" && isSent ? "Linkedin is required" : ""}
         />
         <TextField
           value={github}
@@ -143,9 +137,7 @@ function Form() {
           label="Instagram"
           variant="outlined"
           error={instagram === "" && isSent}
-          helperText={
-            instagram === "" && isSent ? "Instagram is required" : ""
-          }
+          helperText={instagram === "" && isSent ? "Instagram is required" : ""}
         />
         <TextField
           value={slug}
