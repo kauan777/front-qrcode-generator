@@ -72,7 +72,7 @@ function Form() {
       />
       <Toaster />
       <QrCodeModal
-        link={`${process.env.NEXT_PUBLIC_FRONTEND_URL}/${slugToLink}`}
+        link={`https://qrcodegenerator-azure.vercel.app/${slugToLink}`}
         visible={isModalVisible}
         onClose={() => setIsModalVisible(false)}
       />
