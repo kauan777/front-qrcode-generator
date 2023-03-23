@@ -14,7 +14,7 @@ const Home: NextPage = () => {
     <main className="flex overflow-y-hidden h-screen">
       <Form />
       <section className="hidden md:block relative flex-[8] h-[100vh]">
-        <Image src="/background-form.png" fill alt="Background" />
+        <Image priority src="/background-form.png" fill alt="Background" />
         <div className="absolute top-1/2 left-1/2  ml-10 -translate-x-1/2 -translate-y-1/2 text-white">
           <h2 className="font-bold text-xl mb-2">
             Generate a qr code now with your main social networks
