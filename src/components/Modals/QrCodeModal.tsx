@@ -19,7 +19,9 @@ function QrCodeModal({ visible, onClose, link }: QrCodeModalProps) {
   const [isCopied, setIsCopied] = useState<boolean>(false);
 
   useEffect(() => {
-    handleGenerateDownload();
+    if (link) {
+      handleGenerateDownload();
+    }
   }, []);
 
   let container;
