@@ -1,4 +1,5 @@
 import type { NextPage } from "next";
+import Head from "next/head";
 import Image from "next/image";
 import { useState } from "react";
 import Form from "../components/Form";
@@ -6,6 +7,10 @@ import QrCodeModal from "../components/Modals/QrCodeModal";
 
 const Home: NextPage = () => {
   return (
+   <>
+   <Head>
+    <title>Kauan Costa - QRCode Generator</title>
+   </Head>
     <main className="flex overflow-y-hidden h-screen">
       <Form />
       <section className="hidden md:block relative flex-[8] h-[100vh]">
@@ -21,6 +26,7 @@ const Home: NextPage = () => {
         </div>
       </section>
     </main>
+   </>
   );
 };
 
