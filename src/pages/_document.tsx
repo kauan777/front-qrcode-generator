@@ -21,6 +21,8 @@ export default function Document() {
           content="QrCode Generator"
           key="ogsitename"
         />
+        <meta name="googlebot" content="noindex" />
+        <meta name="googlebot-news" content="nosnippet"></meta>
         <meta property="og:type" content="website" />
         <meta property="og:image" itemProp="image" content="/background.png" />
         <meta
