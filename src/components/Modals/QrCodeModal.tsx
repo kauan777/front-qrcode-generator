@@ -22,7 +22,7 @@ function QrCodeModal({ visible, onClose, link }: QrCodeModalProps) {
     if (link) {
       handleGenerateDownload();
     }
-  }, []);
+  }, [link]);
 
   let container;
   if (!visible) {
