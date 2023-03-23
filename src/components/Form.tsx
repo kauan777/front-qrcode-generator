@@ -13,7 +13,7 @@ function Form() {
   const [linkedin, setLinkedin] = useState("");
   const [github, setGithub] = useState("");
   const [instagram, setInstagram] = useState("");
-  const [slug, setSlug] = useState("teste");
+  const [slug, setSlug] = useState("");
 
   const [slugToLink, setSlugToLink] = useState("");
 
