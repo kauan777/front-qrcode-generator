@@ -6,6 +6,7 @@ import { api } from "../services/api";
 import { toast, Toaster } from "react-hot-toast";
 import QrCodeModal from "./Modals/QrCodeModal";
 import { isGithubUrl, isInstagramUrl, isLinkedinUrl } from "../utils/validURL";
+import ReactLoading from "react-loading";
 
 function Form() {
   const [name, setName] = useState("");
@@ -18,13 +19,16 @@ function Form() {
   const [slugToLink, setSlugToLink] = useState("");
 
   const [isSent, setIsSent] = useState<boolean>(false);
+  const [isLoading, setIsLoading] = useState<boolean>(false);
 
   async function handleCreateUser(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     setIsSent(true);
+    setIsLoading(true);
     setSlugToLink(slug);
 
     if (!name || !description || !linkedin || !github || !instagram || !slug) {
+      setIsLoading(false);
       return;
     }
 
@@ -33,6 +37,7 @@ function Form() {
     const isInstagram = isInstagramUrl(instagram);
 
     if (!isGithub || !isLinkedin || !isInstagram) {
+      setIsLoading(false);
       toast.error("Some URL's are invalid");
       return;
     }
@@ -54,7 +59,9 @@ function Form() {
       setInstagram("");
       setIsSent(false);
       setSlug("");
+      setIsLoading(false);
     } catch (err: any) {
+      setIsLoading(false);
       console.log(err);
       toast.error(err.response.data.message);
     }
@@ -155,8 +162,19 @@ function Form() {
           }
         />
         <button className="flex justify-center items-center gap-2 w-full py-4 bg-blue-700 text-white font-bold hover:brightness-90 transition-all">
-          <IoQrCode color="#fff" size={22} />
-          <span>CREATE</span>
+          {!isLoading ? (
+            <>
+              <IoQrCode color="#fff" size={22} />
+              <span>CREATE</span>
+            </>
+          ) : (
+            <ReactLoading
+              type={"spinningBubbles"}
+              color={"#fff"}
+              height={24}
+              width={24}
+            />
+          )}
         </button>
       </form>
     </section>
