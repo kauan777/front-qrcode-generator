@@ -99,7 +99,7 @@ function Form() {
           onChange={(e) => setDescription(e.target.value)}
           className="w-full"
           id="outlined-basic"
-          label="Description"
+          label="History"
           variant="outlined"
           error={description === "" && isSent}
           helperText={
